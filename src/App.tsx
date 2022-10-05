@@ -2,10 +2,27 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import { HealthyConfig, Healthy } from './components/banner/index';
+
+
 function App() {
+  const healthyConfig: HealthyConfig = {
+    apis: [
+      {
+        name: 'Good API',
+        endpoint: 'https://httpstat.us/200',
+      },
+      {
+        name: 'Bad API',
+        endpoint: 'https://httpstat.us/404',
+      },
+    ],
+  }
   return (
     <div className="App">
+      
       <header className="App-header">
+      <Healthy config={healthyConfig} />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -19,6 +36,7 @@ function App() {
           Learn React
         </a>
       </header>
+     
     </div>
   );
 }
